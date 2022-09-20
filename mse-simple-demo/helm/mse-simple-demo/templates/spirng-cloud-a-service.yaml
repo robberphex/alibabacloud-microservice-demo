@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    mse.aliyun.com/managed-by: mse
+  name: spring-cloud-a-svc
+spec:
+  ports:
+    - port: 20001
+      protocol: TCP
+      targetPort: 20001
+  selector:
+    app: spring-cloud-a

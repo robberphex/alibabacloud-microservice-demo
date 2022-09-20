@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: spring-cloud-a-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /a
+            backend:
+              serviceName: spring-cloud-a-svc
+              servicePort: 20001
