@@ -22,10 +22,8 @@ spec:
           image: "{{ .Values.registry }}spring-cloud-a:1.1.0"
           imagePullPolicy: Always
           env:
-            - name: nacos.host
-              value: "{{ .Values.nacos.host }}"
-            - name: nacos.namespace
-              value: "{{ .Values.nacos.namespace }}"
+            - name: spring.cloud.consul.host
+              value: "consul-server"
           resources:
             requests:
               cpu: 2

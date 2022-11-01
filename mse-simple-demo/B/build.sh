@@ -3,4 +3,4 @@
 cd "$(dirname "$0")"
 
 mvn clean package
-docker build . -t registry.cn-zhangjiakou.aliyuncs.com/luyanbo-msc/spring-cloud-b:1.1.0-jdk11
+docker build . -t registry.cn-hangzhou.aliyuncs.com/luyanbo-msc/spring-cloud-b:1.1.0-jdk11-consul

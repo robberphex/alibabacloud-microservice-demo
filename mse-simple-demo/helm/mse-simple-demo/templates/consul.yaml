@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consul-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consul-server
+  template:
+    metadata:
+      labels:
+        app: consul-server
+        msePilotAutoEnable: 'off'
+    spec:
+      containers:
+        - env:
+            - name: MODE
+              value: standalone
+          image: consul:latest
+          imagePullPolicy: Always
+          name: consul-server
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+
+# consul Server Service 配置
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: consul-server
+spec:
+  ports:
+    - port: 8500
+      protocol: TCP
+      targetPort: 8500
+  selector:
+    app: consul-server
+  type: ClusterIP
